@@ -2,11 +2,6 @@ import MMR
 import random
 from collections import defaultdict
 
-
-# 1.포지션을 우선으로 팀을 구성한다.
-# 빈 자리가 생길 수 있다.
-# 빈 자리는 팀 배정을 받지 못한 인원들이 빈 자리에 랜덤한 순서로 채워진다.
-
 def build_team():
     # 포지션을 담을 리스트
     positions = defaultdict(list)
@@ -20,13 +15,6 @@ def build_team():
         positions[primary_pos].append((name, mmr, primary_pos))
         for pos in secondary_pos:
             positions[pos].append((name, mmr, pos))
-
-    # tmp_positions = []
-    # for lane in total_lane:
-    #     print(lane, len(positions[lane]))
-    #     tmp_positions.append([lane, len(positions[lane])])
-    # tmp_positions.sort(key=lambda x:x[1])
-    # print(tmp_positions)
 
     tmp_positions = sorted([(lane, len(positions[lane])) for lane in total_lane], key=lambda x: x[1])
     # >> 포지션 별로 몰리는 라인도 생기고, 그렇지 않은 라인도 있을 것이다
@@ -93,20 +81,19 @@ def print_team(p, b):
 
 # 예시 입력
 players = [
-    ("김광운", "M 0", "Jungle", "Mid"),
-    ("이재훈", "D 2", "Support", "Mid"),
-    ("서혁범", "E 2", "Mid", "Top"),
-    ("박종현", "P 4", "Support", "Top"),
-    ("위지환", "B 2", "ADC", "Top"),
-    ("이천지", "G 4", "Support", "Jungle"),
-    ("김재현", "S 4", "ADC"),
-    ("박재영", "G 3", "Top", "Mid", "Jungle"),
-    ("여 준", "I 4", "Top"),
-    ("황진성", "S 1", "Jungle", "Mid")
+    ("P1", "M 0", "Jungle", "Mid"),
+    ("P2", "D 2", "Support", "Mid"),
+    ("P3", "E 2", "Mid", "Top"),
+    ("P4", "P 4", "Support", "Top"),
+    ("P5", "B 2", "ADC", "Top"),
+    ("P6", "G 4", "Support", "Jungle"),
+    ("P7", "S 4", "ADC"),
+    ("P8", "G 3", "Top", "Mid", "Jungle"),
+    ("P9", "I 4", "Top"),
+    ("P10", "S 1", "Jungle", "Mid")
 ]
 
 total_lane = ['Top', 'Jungle', 'Mid', 'ADC', 'Support']
-random.shuffle(total_lane)
 
 if __name__ == "__main__":
     print("app.py를 실행합니다.")
