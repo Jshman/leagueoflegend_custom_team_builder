@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <title>롤 사설팀 빌더</title>
+  <link rel="stylesheet" href="style.css" />
+  <script src="https://cdn.jsdelivr.net/npm/sortablejs@latest/Sortable.min.js"></script>
+</head>
+<body>
+  <h1>롤 사설팀 빌더</h1>
+
+  <section class="input-section">
+    <h2>유저 정보 입력</h2>
+    <table id="player-table">
+      <thead>
+        <tr>
+          <th>이름</th>
+          <th>티어</th>
+          <th>주 포지션</th>
+          <th>서브 포지션</th>
+        </tr>
+      </thead>
+      <tbody></tbody>
+    </table>
+    <button id="build-button">팀 빌딩 시작</button>
+  </section>
+
+  <section class="team-section">
+    <div class="team" id="team1">
+      <h2>Team 1</h2>
+      <div class="mmr-info" id="team1-mmr"></div>
+      <div class="position-boxes" id="team1-positions"></div>
+    </div>
+
+    <div class="team" id="team2">
+      <h2>Team 2</h2>
+      <div class="mmr-info" id="team2-mmr"></div>
+      <div class="position-boxes" id="team2-positions"></div>
+    </div>
+  </section>
+
+  <script src="main.js"></script>
+</body>
+</html>
