@@ -15,6 +15,8 @@ const mmrMap = {
 const subTierOffset = { "4": 0, "3": 100, "2": 200, "1": 300, "0": 0 };
 
 const tbody = document.querySelector("#player-table tbody");
+
+
 for (let i = 0; i < 10; i++) {
   const tr = document.createElement("tr");
   ["name", "tier", "main", "sub"].forEach((type) => {
@@ -68,12 +70,29 @@ for (let i = 0; i < 10; i++) {
       td.appendChild(wrapper);
     } else {
       const input = document.createElement("input");
+      input.type = "text";
+      input.style.width = "70%";
+
+        // Tab 키로 다음 이름 input 이동
+      input.addEventListener("keydown", (e) => {
+            if (e.key === "Tab") {
+            e.preventDefault();
+            const allNames = document.querySelectorAll("#player-table input[type='text']");
+            const currentIndex = [...allNames].indexOf(e.target);
+            if (currentIndex >= 0 && currentIndex < allNames.length - 1) {
+                allNames[currentIndex + 1].focus();
+            }
+            }
+      });
+
       td.appendChild(input);
     }
     tr.appendChild(td);
   });
   tbody.appendChild(tr);
 }
+
+
 
 function shiftSelect(select, direction) {
   const len = select.options.length;
